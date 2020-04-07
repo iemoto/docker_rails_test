@@ -1,7 +1,7 @@
 .d-flex.align-items-center
   %h1 掲示板一覧
   .ml-auto.boards__linkBox
-    %a.btn.btn-outline-dark 新規作成
+    %a.btn.btn-outline-dark{href: "/boards/new"} 新規作成
 %table.table.table-hover.boards__table
   %thead.thead-dark
     %tr
@@ -11,15 +11,15 @@
       %th 作成日時
       %th 更新日時
   %tbody
-    %tr
-      %th 1
-      %td 雑談掲示板
-      %td Taro
-      %td 2018年4月1日
-      %td 2018年4月15日
-    %tr
-      %th 2
-      %td 雑談掲示板2
-      %td Ken
-      %td 2018年4月1日
-      %td 2018年4月15日
+    - @boards.each do |board|
+      %tr
+        %th
+          = board.id
+        %td
+          = board.title
+        %td
+          = board.name
+        %td
+          = board.created_at
+        %td
+          = board.updated_at
