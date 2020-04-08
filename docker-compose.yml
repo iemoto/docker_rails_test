@@ -15,7 +15,12 @@ services:
     image: mysql:5.7
     volumes:
       - db-volume:/var/lib/mysql
+    ports:
+      - "4306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=docker_rails_test_development
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
 volumes:
   db-volume:
