@@ -12,6 +12,21 @@ class BoardsController < ApplicationController
     redirect_to boards_path
   end
 
+  def show
+    @board = Board.find(params[:id])
+  end
+
+  def edit
+    @board = Board.find(params[:id])
+  end
+
+  def update
+    board = Board.find(params[:id])
+    board.update(board_params)
+
+    redirect_to board
+  end
+
   private
 
   def board_params

@@ -1,7 +1,7 @@
 .d-flex.align-items-center
   %h1 掲示板一覧
   .ml-auto.boards__linkBox
-    %a.btn.btn-outline-dark{href: "/boards/new"} 新規作成
+    = link_to '新規作成', new_board_path, class: 'btn btn-outline-dark'
 %table.table.table-hover.boards__table
   %thead.thead-dark
     %tr
@@ -10,10 +10,12 @@
       %th 作成者
       %th 作成日時
       %th 更新日時
+      %th
+
   %tbody
     - @boards.each do |board|
       %tr
-        %th
+        %td
           = board.id
         %td
           = board.title
@@ -23,3 +25,5 @@
           = board.created_at.to_s(:datetime_jp)
         %td
           = board.updated_at.to_s(:datetime_jp)
+        %td
+          = link_to '詳細', board_path(board.id), class: 'btn btn-outline-dark'
