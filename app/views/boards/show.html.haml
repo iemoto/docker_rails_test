@@ -6,3 +6,4 @@
   .alert.alert-primary
     = flash[:notice]
 = render @board
+= render partial: 'comment_form', locals: { comment: @comment}
