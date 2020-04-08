@@ -20,6 +20,6 @@
         %td
           = board.name
         %td
-          = board.created_at
+          = board.created_at.to_s(:datetime_jp)
         %td
-          = board.updated_at
+          = board.updated_at.to_s(:datetime_jp)
