@@ -1,6 +1,12 @@
 # == Route Map
 #
 #     Prefix Verb   URI Pattern                Controller#Action
+#     mypage GET    /mypage(.:format)          user#me
+#      login POST   /login(.:format)           sessions#create
+#     logout DELETE /logout(.:format)          sessions#destroy
+#       root GET    /                          home#index
+#      users POST   /users(.:format)           users#create
+#   new_user GET    /users/new(.:format)       users#new
 #     boards GET    /boards(.:format)          boards#index
 #            POST   /boards(.:format)          boards#create
 #  new_board GET    /boards/new(.:format)      boards#new
