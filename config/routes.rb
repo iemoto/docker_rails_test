@@ -9,12 +9,11 @@
 #            PATCH  /boards/:id(.:format)      boards#update
 #            PUT    /boards/:id(.:format)      boards#update
 #            DELETE /boards/:id(.:format)      boards#destroy
+#   comments POST   /comments(.:format)        comments#create
+#    comment DELETE /comments/:id(.:format)    comments#destroy
 
 Rails.application.routes.draw do
-  get 'comments/create'
-
-  get 'comments/destroy'
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html 
   resources :boards
+  resources :comments, only: [:create, :destroy]
 end

@@ -23,11 +23,10 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @board = Board.find(params[:id])
+    @comment = @board.comments.new
   end
 
   def edit
-    @board = Board.find(params[:id])
   end
 
   def update
