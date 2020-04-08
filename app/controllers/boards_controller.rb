@@ -2,7 +2,9 @@ class BoardsController < ApplicationController
   before_action :set_target_board, only: [:show, :edit, :update, :destroy]
 
   def index
-     @boards = Board.page(params[:page])
+    @boards = params[:tag_id].present? ? Tag.find(params[:tag_id]).boards : Board.all 
+    @boards = @boards.page(params[:page])
+
   end
   
   def new
@@ -11,6 +13,7 @@ class BoardsController < ApplicationController
   
   def create
     board = Board.new(board_params)
+    binding.pry
     if board.save
       flash[:notice] =  "「#{board.title}」の掲示板を作成しました"
       redirect_to board
@@ -47,6 +50,6 @@ class BoardsController < ApplicationController
   end
 
   def board_params
-    params.require(:board).permit(:name, :title, :body)
+    params.require(:board).permit(:name, :title, :body, tag_ids: [])
   end
 end
