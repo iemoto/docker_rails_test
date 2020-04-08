@@ -11,6 +11,7 @@
       %th 作成日時
       %th 更新日時
       %th
+      %th
 
   %tbody
     - @boards.each do |board|
@@ -26,4 +27,6 @@
         %td
           = board.updated_at.to_s(:datetime_jp)
         %td
-          = link_to '詳細', board_path(board.id), class: 'btn btn-outline-dark'
+          = link_to '詳細', board, class: 'btn btn-outline-dark'
+        %td
+          = link_to '削除', board, class: 'btn btn-outline-dark', method: :delete
