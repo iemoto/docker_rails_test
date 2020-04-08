@@ -10,8 +10,8 @@
 #  updated_at :datetime         not null
 #
 class Board < ApplicationRecord
-  has_many :comments
-  has_many :board_tags
+  has_many :comments, dependent: :delete_all
+  has_many :board_tags, dependent: :delete_all
   has_many :taga, through: :board_tags
 
   validates :name, presence: true, length: { maximum: 10}
