@@ -6,17 +6,18 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      session[:user_id] = user.user_id
+      session[:user_id] = user.id
       redirect_to mypage_path
     else
       redirect_to :back, flash: {
         user: user,
-        error_message: user.errors.full_messages
+        error_messages: user.errors.full_messages
       }
     end
   end
 
   def me
+    binding.pry
   end
 
   private
