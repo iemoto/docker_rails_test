@@ -1,0 +1,5 @@
+.p-comment__item
+  %p= simple_format(comment.comment)
+  .p-comment__bottomLine
+    %span= comment.name
+    %span= comment.created_at.to_s(:datetime_jp)
