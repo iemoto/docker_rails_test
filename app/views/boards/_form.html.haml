@@ -1,3 +1,9 @@
+- if flash[:error_messages]
+  .alert.alert-danger
+    %ul
+      - flash[:error_messages].each do |msg|
+        %li
+          = msg
 = form_for board do |f|
   .form-group
     = f.label :name, '名前'
